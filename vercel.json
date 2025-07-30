@@ -1,17 +1,11 @@
 {
   "builds": [
     {
-      "src": "package.json",
+      "src": "hugo.toml",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "public"
       }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
     }
   ]
 }
