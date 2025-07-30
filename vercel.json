@@ -1,11 +1,4 @@
 {
-  "builds": [
-    {
-      "src": "hugo.toml",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "public"
-      }
-    }
-  ]
+  "framework": "hugo",
+  "outputDirectory": "public"
 }
