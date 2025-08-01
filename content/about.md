@@ -6,6 +6,8 @@ aliases = ["about-me", "about-sabique", "contact"]
 author = "Sabique"
 +++
 
+---
+
 Hey, I’m **Sabique**, a B.Tech CSE student based in Bangalore, Karnataka. I’m learning web development, blogging, grinding through DSA, and doing a bit of creative writing on the side.
 
 This blog is where I share what I’m working on, including projects, experiments, successes, failures and everything in between.
@@ -23,6 +25,7 @@ This blog is where I share what I’m working on, including projects, experiment
 - **GitHub:** [github.com/Sabique-Islam](https://github.com/Sabique-Islam)  
 - **LinkedIn:** [linkedin.com/in/sabique-islam](https://www.linkedin.com/in/sabique-islam/)  
 - **X (Twitter):** [x.com/Sabique_](https://x.com/Sabique_)  
+- **Instgram:** [instagram.com/bunsamosaa](https://www.instagram.com/bunsamosaa/)
 - **Email:** [sabiqueislam7@gmail.com](mailto:sabiqueislam7@gmail.com)  
 
 ## Get in Touch ➤
