@@ -1,18 +1,17 @@
 <footer>
-  <div style="display:flex">
+  <div style="display:flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
     {{- range $index, $key := .Site.Params.Social -}}
       {{- if hasPrefix $key.icon "simple:" -}}
-        <a class="soc" href="{{ $key.url }}" rel="me" title="{{ $key.name }}"><i class="si si-{{ substr $key.icon 7 }}"></i></a>
+        <a class="soc" href="{{ $key.url }}" rel="me" title="{{ $key.name }}" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+          <i class="si si-{{ substr $key.icon 7 }}"></i>
+          <span>{{ $key.name }}</span>
+        </a>
       {{- else -}}
-        <a class="soc" href="{{ $key.url }}" rel="me" title="{{ $key.name }}">{{ template "feathericon" (dict "Icon" $key.icon "UseCDN" .Site.Params.useCDN) }}</a>
+        <a class="soc" href="{{ $key.url }}" rel="me" title="{{ $key.name }}" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+          {{ template "feathericon" (dict "Icon" $key.icon "UseCDN" .Site.Params.useCDN) }}
+          <span>{{ $key.name }}</span>
+        </a>
       {{- end -}}
     {{- end -}}
-  </div>
-  <div class="footer-info">
-    <a href="https://github.com/Sabique-Islam" target="_blank" rel="noopener">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
-           alt="GitHub" 
-           style="width: 16px; height: 16px;">
-    </a>
   </div>
 </footer>
