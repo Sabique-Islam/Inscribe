@@ -1,3 +1,29 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://inxcribe.vercel.app/'
 languageCode = 'en-us'
-title = 'Blog'
+title = 'Inscribe'
+
+[params]
+  subtitle = "Exploring the intersection of code, creativity, and the digital world"
+  description = "A blog about programming, technology, creative writing and software development"
+  author = "Sabique Islam"
+  mode = "toggle"
+  useCDN = false
+  mainSections = ["posts"]
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 3
+  [[menu.main]]
+    name = "Archives"
+    url = "/archives/"
+    weight = 4
