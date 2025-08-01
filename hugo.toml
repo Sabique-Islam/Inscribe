@@ -11,6 +11,36 @@ title = 'Inscribe'
   mainSections = ["posts"]
   favicon = "/favicon.svg"
 
+  [[params.social]]
+    name = "Portfolio"
+    icon = "simple:wpexplorer"
+    url = "https://sabique.vercel.app/"
+
+  [[params.social]]
+    name = "GitHub"
+    icon = "simple:github"
+    url = "https://github.com/Sabique-Islam"
+
+  [[params.social]]
+    name = "Instagram"
+    icon = "simple:instagram"
+    url = "https://www.instagram.com/bunsamosaa/"
+
+  [[params.social]]
+    name = "LinkedIn"
+    icon = "simple:linkedin"
+    url = "https://www.linkedin.com/in/sabique-islam/"
+
+  [[params.social]]
+    name = "X (Twitter)"
+    icon = "simple:x"
+    url = "https://x.com/Sabique_"
+
+  [[params.social]]
+    name = "LeetCode"
+    icon = "simple:leetcode"
+    url = "https://leetcode.com/u/nopejs/"
+
 [menu]
   [[menu.main]]
     name = "Home"
