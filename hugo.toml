@@ -9,6 +9,7 @@ title = 'Inscribe'
   mode = "toggle"
   useCDN = false
   mainSections = ["posts"]
+  favicon = "/favicon.svg"
 
 [menu]
   [[menu.main]]

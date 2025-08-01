@@ -10,7 +10,8 @@
 	{{- end -}}
 
 	{{- if isset .Site.Params "favicon" -}}
-	<link rel="icon" type="image/png" href={{ .Site.Params.favicon }} />
+	<link rel="icon" type="image/svg+xml" href="{{ .Site.Params.favicon }}" />
+	<link rel="alternate icon" href="{{ .Site.Params.favicon }}" />
 	{{- end -}}
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
