@@ -1,6 +1,6 @@
 ---
 title: Dead Semester | Animated Zombie Series
-description: How a late‑night idea turned into a slow‑burn Indian college zombie survival story.
+description: How a random lecture hall idea turned into a slow‑burn Indian college zombie survival story.
 date: 2025-08-01
 tldr: "The making of Dead Semester — from a random lecture hall thought to a fully planned animated horror‑thriller webseries."
 draft: false
