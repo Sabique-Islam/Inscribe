@@ -1,6 +1,7 @@
 baseURL = 'https://inxcribe.netlify.app/'
 languageCode = 'en-us'
 title = 'Inscribe'
+publishFuture = true
 
 [params]
   subtitle = "Exploring the intersection of code, creativity, and the digital world"
