@@ -1,4 +1,4 @@
-baseURL = 'https://inxcribe.netlify.app/'
+baseURL = 'https://inscribe.studio/'
 languageCode = 'en-us'
 title = 'Inscribe'
 publishFuture = true
