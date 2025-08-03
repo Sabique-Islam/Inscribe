@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Block admin and development files
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /README.md
+
+# Allow important SEO files
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# Sitemap location
+Sitemap: https://inscribe.studio/sitemap.xml
