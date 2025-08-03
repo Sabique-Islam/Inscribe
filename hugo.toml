@@ -33,6 +33,11 @@ publishFuture = true
     url = "https://www.linkedin.com/in/sabique-islam/"
 
   [[params.social]]
+    name = "Mail"
+    icon = "simple:gmail"
+    url = "mailto:sabiqueislam7@gmail.com"
+
+  [[params.social]]
     name = "X (Twitter)"
     icon = "simple:x"
     url = "https://x.com/Sabique_"
@@ -41,6 +46,16 @@ publishFuture = true
     name = "LeetCode"
     icon = "simple:leetcode"
     url = "https://leetcode.com/u/nopejs/"
+
+  [[params.social]]
+    name = "Spotify"
+    icon = "simple:spotify"
+    url = "https://open.spotify.com/user/31aa6sqh3runlghhznp4arpwwp54"
+
+  [[params.social]]
+    name = "Reddit"
+    icon = "simple:reddit"
+    url = "https://www.reddit.com/user/nope-js/"
 
 [menu]
   [[menu.main]]
