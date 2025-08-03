@@ -4,7 +4,7 @@ title = 'Inscribe'
 publishFuture = true
 
 # SEO Configuration
-enableRobotsTXT = true
+enableRobotsTXT = false
 canonifyURLs = true
 
 [sitemap]
@@ -30,6 +30,7 @@ canonifyURLs = true
   # SEO Settings
   enableRobotsTXT = true
   canonifyURLs = true
+  canonicalURL = "https://inscribe.studio/"
   
   # JSON-LD structured data
   jsonLD = true

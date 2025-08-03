@@ -7,3 +7,16 @@
 
 [context.production.environment]
   HUGO_ENV = "production"
+
+# Redirect old Netlify domain to custom domain
+[[redirects]]
+  from = "https://inxcribe.netlify.app/*"
+  to = "https://inscribe.studio/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://inxcribe.netlify.app/*"
+  to = "https://inscribe.studio/:splat"
+  status = 301
+  force = true

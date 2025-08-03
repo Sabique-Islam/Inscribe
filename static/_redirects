@@ -1,0 +1,7 @@
+# Redirect old Netlify domain to custom domain
+https://inxcribe.netlify.app/* https://inscribe.studio/:splat 301!
+http://inxcribe.netlify.app/* https://inscribe.studio/:splat 301!
+inscribe.netlify.app/* https://inscribe.studio/:splat 301!
+
+# Force HTTPS
+http://inscribe.studio/* https://inscribe.studio/:splat 301!
