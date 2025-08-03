@@ -2,6 +2,19 @@
 <html>
 	{{ partial "header.html" . }}
 	<body>
+		<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "WebSite",
+		  "name": "{{ .Site.Title }}",
+		  "url": "{{ .Site.BaseURL }}",
+		  "description": "{{ .Site.Params.description }}",
+		  "author": {
+		    "@type": "Person",
+		    "name": "{{ .Site.Params.author }}"
+		  }
+		}
+		</script>
 		<div class="content">
 			{{ partial "head.html" . }}
 			
