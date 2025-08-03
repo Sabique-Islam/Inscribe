@@ -3,6 +3,20 @@ languageCode = 'en-us'
 title = 'Inscribe'
 publishFuture = true
 
+# SEO Configuration
+enableRobotsTXT = true
+canonifyURLs = true
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
   subtitle = "Exploring the intersection of code, creativity, and the digital world"
   description = "A blog about programming, technology, creative writing and software development"
@@ -11,6 +25,14 @@ publishFuture = true
   useCDN = false
   mainSections = ["posts"]
   favicon = "/favicon.svg"
+  og_image = "/images/blog-cover.png"
+  
+  # SEO Settings
+  enableRobotsTXT = true
+  canonifyURLs = true
+  
+  # JSON-LD structured data
+  jsonLD = true
 
   [[params.social]]
     name = "Portfolio"
