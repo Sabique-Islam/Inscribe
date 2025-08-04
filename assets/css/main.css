@@ -407,3 +407,24 @@ table td{
   gap: 1rem;
   padding: 1rem 0;
 }
+
+/* 
+
+Mobile responsive 
+
+- Remove TOC
+- Post : Full Width
+
+*/
+
+@media screen and (max-width: 768px) {
+  
+  .post-content {
+    flex: 1;
+    width: 100%;
+  }
+  
+  .toc {
+    display: none;
+  }
+}
