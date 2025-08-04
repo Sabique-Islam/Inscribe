@@ -161,6 +161,16 @@ h6::before { color: var(--maincolor); content: '###### '; }
   letter-spacing: -0.5px;
 }
 
+.meta .reading-time {
+  font-weight: 500;
+  color: #999;
+}
+
+.meta .separator {
+  margin: 0 0.5em;
+  color: #000000;
+}
+
 .post-container {
   align-items: flex-start;
   display: flex;
