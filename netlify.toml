@@ -1,5 +1,5 @@
 [build]
-  command = "hugo"
+  command = "hugo --environment production --baseURL https://inscribe.studio/"
   publish = "public"
 
 [build.environment]
@@ -7,6 +7,7 @@
 
 [context.production.environment]
   HUGO_ENV = "production"
+  HUGO_BASEURL = "https://inscribe.studio/"
 
 # Redirect old Netlify domain to custom domain
 [[redirects]]

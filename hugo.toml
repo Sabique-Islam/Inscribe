@@ -20,7 +20,7 @@ canonifyURLs = true
 [params]
   subtitle = "Exploring the intersection of code, creativity, and the digital world"
   description = "A blog about programming, technology, creative writing and software development"
-  author = "Sabique Islam"
+  author = "Sabique"
   mode = "toggle"
   useCDN = false
   mainSections = ["posts"]
@@ -28,11 +28,6 @@ canonifyURLs = true
   og_image = "/images/blog-cover.png"
   
   # SEO Settings
-  enableRobotsTXT = true
-  canonifyURLs = true
-  canonicalURL = "https://inscribe.studio/"
-  
-  # JSON-LD structured data
   jsonLD = true
 
   [[params.social]]
