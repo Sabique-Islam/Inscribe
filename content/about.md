@@ -32,7 +32,3 @@ This blog is where I share what I’m working on, including projects, experiment
 
 Got something to say? Want to collaborate? Or maybe just debate over tabs vs spaces?  
 You can reach out using any of the links above.
-
----
-
-> *This blog runs on [Hugo](https://gohugo.io/) with the [Archie theme](https://github.com/athul/archie).*  
