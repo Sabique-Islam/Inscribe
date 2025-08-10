@@ -13,8 +13,8 @@ cover = "/images/blog-cover.png"
 I’m **Sabique**, a creative writer, programmer, and tech enthusiast with a love for blending storytelling and technology.  
 This site is my space for:
 
+- Blogging about ideas, insights, and experiences  
 - Creative storytelling experiments  
-- SEO‑driven content & blogging  
 - Programming guides and personal projects  
 
 ---

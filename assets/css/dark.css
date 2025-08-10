@@ -10,8 +10,8 @@ body {
 }
 
 ::selection {
-  background: red;
-  color: #fff;
+  background: rgb(255, 255, 255);
+  color: #000000;
   text-shadow: none;
 }
 
