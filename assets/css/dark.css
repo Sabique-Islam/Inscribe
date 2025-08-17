@@ -3,6 +3,11 @@ body {
   background-color: #000000;
 }
 
+/* Hide gradient in dark mode */
+body::before {
+  display: none;
+}
+
 ::-moz-selection {
   background: blue;
   color: #fff;
@@ -16,7 +21,7 @@ body {
 }
 
 hr {
-  border-top: 3px dotted blue;
+  border-top: 3px dotted white;
 }
 code {
   background-color: lightblue;
@@ -86,6 +91,18 @@ a:hover {
 }
 .site-description a:hover {
   color: black;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-left: 0;
+}
+
+.tags li {
+  display: inline-block;
+  text-indent: 0;
 }
 
 .tags a {
