@@ -114,6 +114,10 @@
 		<link rel="stylesheet" type="text/css" href="{{ $customstyle.Permalink }}">
 		{{ end }}
 	{{- end -}}
+
+	<!-- Lenis Scrolling -->
+	<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.22/bundled/lenis.min.js"></script>
+
 	{{- range .Site.Params.customJS }}
 	{{- if or (hasPrefix . "http://") (hasPrefix . "https://") }}
 	<script src="{{ . }}"></script>
