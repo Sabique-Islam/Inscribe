@@ -28,6 +28,17 @@
 					<p>{{ .Site.Params.Subtitle | .Page.RenderString }}</p>
 					{{- end -}}
 				</div>
+				
+				<!-- Spotify Now Playing Widget -->
+				<div id="spotify-widget" class="spotify-widget">
+					<div class="spotify-widget__header">
+						<div id="status-text" class="spotify-widget__status">Listening to Spotify</div>
+						<a id="spotify-logo" href="#" target="_blank" class="spotify-widget__logo" style="display: none;">
+							<i class="si si-spotify"></i>
+						</a>
+					</div>
+					<div id="spotify-content" class="spotify-widget__content">Loading Spotify track...</div>
+				</div>
 				{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 				{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
 				{{ range $paginator.Pages }}

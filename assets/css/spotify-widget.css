@@ -1,0 +1,131 @@
+/* Spotify Widget Styles */
+.spotify-widget {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.spotify-widget__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.spotify-widget__logo {
+    display: inline-block;
+    color: #1db954;
+    text-decoration: none;
+    font-size: 18px;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.spotify-widget__logo:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.spotify-widget__status {
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+    font-weight: 500;
+}
+
+.spotify-widget__content {
+    color: #333;
+}
+
+.spotify-widget__track {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.spotify-widget__album-art {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.spotify-widget__album-art:hover {
+    transform: scale(1.02);
+}
+
+.spotify-widget__track-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.spotify-widget__track-name {
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.spotify-widget__artist {
+    color: #666;
+    margin-bottom: 2px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.spotify-widget__album {
+    color: #999;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.spotify-widget__progress {
+    background-color: #e0e0e0;
+    height: 4px;
+    border-radius: 2px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.spotify-widget__progress-fill {
+    height: 100%;
+    background: rebeccapurple;
+    transition: width 0.1s ease;
+    border-radius: 2px;
+}
+
+.spotify-widget__time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #999;
+    font-family: monospace;
+}
+
+.spotify-widget__error,
+.spotify-widget__empty {
+    color: #999;
+    font-style: italic;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.spotify-widget__auth-link {
+    color: #1db954;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.spotify-widget__auth-link:hover {
+    text-decoration: underline;
+}

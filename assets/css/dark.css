@@ -215,3 +215,50 @@ a:hover {
 .si-x::before {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>') !important;
 }
+
+/* Spotify Widget Dark Theme */
+.spotify-widget {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.spotify-widget__status {
+  color: #888 !important;
+}
+
+.spotify-widget__content {
+  color: #fff !important;
+}
+
+.spotify-widget__track-name {
+  color: #fff !important;
+}
+
+.spotify-widget__artist {
+  color: #ccc !important;
+}
+
+.spotify-widget__album {
+  color: #888 !important;
+}
+
+.spotify-widget__progress {
+  background-color: #333 !important;
+}
+
+.spotify-widget__time {
+  color: #888 !important;
+}
+
+.spotify-widget__error,
+.spotify-widget__empty {
+  color: #888 !important;
+}
+
+.spotify-widget__album-art {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1) !important;
+}
+
+.spotify-widget__logo {
+  color: #1db954 !important;
+}
