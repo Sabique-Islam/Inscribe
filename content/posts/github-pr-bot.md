@@ -2,6 +2,7 @@
 title: "Pull Requests Too Long? Meet the GitHub PR Summarizer Bot"
 description: "Emerged from the pain of reviewing group project PRs - a bot that automatically summarizes pull requests using GitHub Actions."
 date: 2025-08-17
+cover: "/images/mascot.png"
 tldr: Built during a group project where PR reviews felt like one of those "No wayyy!" moments, this bot automatically generates summaries to make the process quicker and easier.
 draft: false
 tags: ["GitHub", "AI", "developer tools", "open source", "college projects", "GitHub Actions", "automation", "Gemini", "pull requests", "code review", "productivity", "bots", "software engineering", "hackathon", "college hacks", "workflow automation", "devtools", "PR summarizer", "AI in dev", "team collaboration"]

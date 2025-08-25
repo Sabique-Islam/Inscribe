@@ -44,9 +44,24 @@
 				{{ range $paginator.Pages }}
 				<section class="list-item">
 					<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
-					<time>{{ dateFormat ":date_medium" .Date }} • {{ .ReadingTime }} min read{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
-					<br>{{ template "partials/pagedescription.html" . }}
-					<a class="readmore" href="{{ .RelPermalink }}">Read more ⟶</a>
+					{{ if .Params.cover }}
+					<div class="post-card">
+						<div class="post-cover">
+							<img src="{{ .Params.cover }}" alt="{{ .Title }}" loading="lazy">
+						</div>
+						<div class="post-content">
+							<time>{{ dateFormat ":date_medium" .Date }} • {{ .ReadingTime }} min read{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
+							{{ template "partials/pagedescription.html" . }}
+							<a class="readmore" href="{{ .RelPermalink }}">Read more ⟶</a>
+						</div>
+					</div>
+					{{ else }}
+					<div class="post-card-no-cover">
+						<time>{{ dateFormat ":date_medium" .Date }} • {{ .ReadingTime }} min read{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</time>
+						{{ template "partials/pagedescription.html" . }}
+						<a class="readmore" href="{{ .RelPermalink }}">Read more ⟶</a>
+					</div>
+					{{ end }}
 				</section>
 				{{ end }}
 				{{ template "partials/paginator.html" . }}

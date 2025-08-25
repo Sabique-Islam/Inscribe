@@ -21,14 +21,14 @@ body::after {
 }
 
 ::-moz-selection {
-  background: blue;
-  color: #fff;
+  background: #ffffff !important;
+  color: #000000 !important;
   text-shadow: none;
 }
 
 ::selection {
-  background: rgb(255, 255, 255);
-  color: #000000;
+  background: #ffffff !important;
+  color: #000000 !important;
   text-shadow: none;
 }
 
@@ -94,15 +94,12 @@ a {
   color: inherit;
 }
 a:hover {
-  background-color: var(--darkMaincolor);
-  color: black;
+  background: white;
+  color: #000000;
 }
 
 .site-description a {
   color: #ddd;
-}
-.site-description a:hover {
-  color: black;
 }
 
 .tags {
@@ -121,8 +118,8 @@ a:hover {
   border-bottom: 3px solid var(--darkMaincolor);
 }
 .tags a:hover {
-  background-color: var(--darkMaincolor);
-  color: black;
+  background-color: var(--darkMaincolor) !important;
+  color: #000000 !important;
 }
 
 .site-title a {
@@ -139,7 +136,8 @@ a:hover {
   background-color: #333;
 }
 .soc:hover {
-  color: black;
+  background-color: var(--darkMaincolor) !important;
+  color: #000000 !important;
 }
 .draft-label {
   color: var(--darkMaincolor);
@@ -285,4 +283,44 @@ a:hover {
 
 .banner-dark {
   display: block !important;
+}
+
+/* Dark theme post list styles */
+.list-item {
+  border-bottom-color: #333 !important;
+}
+
+.list-item .title a:hover {
+  color: #000000 !important;
+  background: #ffffff !important;
+}
+
+.post-cover {
+  background-color: #000000 !important;
+}
+
+.post-content time {
+  color: #888 !important;
+}
+
+.post-content .readmore {
+  color: var(--darkMaincolor) !important;
+}
+
+.post-content .readmore:hover {
+  color: #000000 !important;
+  background: #ffffff !important;
+}
+
+.post-card-no-cover time {
+  color: #888 !important;
+}
+
+.post-card-no-cover .readmore {
+  color: var(--darkMaincolor) !important;
+}
+
+.post-card-no-cover .readmore:hover {
+  color: #000000 !important;
+  background: #ffffff !important;
 }
