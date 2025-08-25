@@ -3,10 +3,10 @@ title = "Sabique Islam"
 subtitle = "Creative Writing | Programming | Technology"
 description = "Creative writer & programmer blending storytelling with tech"
 date = 2025-08-01
-cover = "/images/blog-cover.png"
+cover = "/images/banner.svg"
 +++
 
-![Cover Image](/images/blog-cover.png)
+![Cover Image](/images/banner.svg)
 
 # Hey there!
 
