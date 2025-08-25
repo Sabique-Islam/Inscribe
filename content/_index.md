@@ -6,7 +6,10 @@ date = 2025-08-01
 cover = "/images/banner.svg"
 +++
 
-![Cover Image](/images/banner.svg)
+<div class="theme-banners">
+  <img src="/images/banner.svg" alt="Cover Image" class="banner-dark" />
+  <img src="/images/banner-light.svg" alt="Cover Image" class="banner-light" />
+</div>
 
 # Hey there!
 

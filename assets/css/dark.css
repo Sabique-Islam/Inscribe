@@ -1,3 +1,11 @@
+:root{
+--maincolor: rgb(0, 0, 0);
+--bordercl:rgb(255, 252, 252);
+--callouctcolor:dodgerblue;
+--hovercolor:rgb(0, 0, 0);
+--darkMaincolor: #ffffff;
+}
+
 body {
   color: white;
   background-color: #000000;
@@ -246,6 +254,10 @@ a:hover {
   background-color: #333 !important;
 }
 
+.spotify-widget__progress-fill {
+  background: #ffffff !important;
+}
+
 .spotify-widget__time {
   color: #888 !important;
 }
@@ -261,4 +273,16 @@ a:hover {
 
 .spotify-widget__logo {
   color: #1db954 !important;
+}
+
+.theme-banners img {
+  border: 3px solid #000000;
+}
+
+.banner-light {
+  display: none !important;
+}
+
+.banner-dark {
+  display: block !important;
 }

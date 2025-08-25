@@ -1,40 +1,6 @@
-/* Background Image Effect */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -2;
-  pointer-events: none;
-  background-image: url('/images/bg.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.08;
-  filter: blur(0.6px);
-}
-
-/* Background Gradient Effect */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  pointer-events: none;
-  background-image: radial-gradient(circle at top left, rgb(241, 223, 228), transparent 100%);
-  opacity: 0.7;
-  mix-blend-mode: multiply;
-}
-
-/* Markdown */
 :root{
 --maincolor: rgb(0, 0, 0);
---bordercl:rebeccapurple;
+--bordercl:rgb(0, 0, 0);
 --callouctcolor:dodgerblue;
 --hovercolor:rgb(0, 0, 0);
 --darkMaincolor: #ffffff;
@@ -494,4 +460,22 @@ html, body {
 }
 html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
+}
+
+.banner-light {
+  display: block;
+}
+
+.banner-dark {
+  display: none;
+}
+
+body:has(#darkModeStyle:not([disabled])) .banner-light,
+body:has(#darkModeStyle[disabled="false"]) .banner-light {
+  display: none;
+}
+
+body:has(#darkModeStyle:not([disabled])) .banner-dark,
+body:has(#darkModeStyle[disabled="false"]) .banner-dark {
+  display: block;
 }
