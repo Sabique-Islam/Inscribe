@@ -285,9 +285,12 @@ a:hover {
   display: block !important;
 }
 
-/* Dark theme post list styles */
 .list-item {
-  border-bottom-color: #333 !important;
+  border-bottom: 3px dotted #ffffff !important;
+}
+
+.list-item:last-child {
+  border-bottom: none !important;
 }
 
 .list-item .title a:hover {

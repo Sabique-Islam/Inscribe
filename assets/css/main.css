@@ -483,7 +483,7 @@ body:has(#darkModeStyle[disabled="false"]) .banner-dark {
 /* Post list item styles */
 .list-item {
   margin-bottom: 2.5em;
-  border-bottom: 1px solid #eee;
+  border-bottom: 3px dotted #000000;
   padding-bottom: 2em;
 }
 
