@@ -423,6 +423,7 @@ table td{
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
+  vertical-align: middle;
 }
 
 .social-icons {
