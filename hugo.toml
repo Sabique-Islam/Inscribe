@@ -30,6 +30,7 @@ canonifyURLs = true
   # SEO Settings
   jsonLD = true
 
+  # Dev Links
   [[params.social]]
     name = "Portfolio"
     icon = "simple:wpexplorer"
@@ -41,39 +42,41 @@ canonifyURLs = true
     url = "https://github.com/Sabique-Islam"
 
   [[params.social]]
-    name = "Instagram"
-    icon = "simple:instagram"
-    url = "https://www.instagram.com/bunsamosaa/"
-
-  [[params.social]]
     name = "LinkedIn"
     icon = "simple:linkedin"
     url = "https://www.linkedin.com/in/sabique-islam/"
-
-  [[params.social]]
-    name = "Mail"
-    icon = "simple:gmail"
-    url = "mailto:sabiqueislam7@gmail.com"
-
-  [[params.social]]
-    name = "X (Twitter)"
-    icon = "simple:x"
-    url = "https://x.com/Sabique_"
 
   [[params.social]]
     name = "LeetCode"
     icon = "simple:leetcode"
     url = "https://leetcode.com/u/nopejs/"
 
+  # Social Links
   [[params.social]]
-    name = "Spotify"
-    icon = "simple:spotify"
-    url = "https://open.spotify.com/user/31aa6sqh3runlghhznp4arpwwp54"
+    name = "Instagram"
+    icon = "simple:instagram"
+    url = "https://www.instagram.com/bunsamosaa/"
+
+  [[params.social]]
+    name = "X"
+    icon = "simple:x"
+    url = "https://x.com/Sabique_"
 
   [[params.social]]
     name = "Reddit"
     icon = "simple:reddit"
     url = "https://www.reddit.com/user/nope-js/"
+
+  # Meh Links
+  [[params.social]]
+    name = "Mail"
+    icon = "simple:gmail"
+    url = "mailto:sabiqueislam7@gmail.com"
+
+  [[params.social]]
+    name = "Spotify"
+    icon = "simple:spotify"
+    url = "https://open.spotify.com/user/31aa6sqh3runlghhznp4arpwwp54"
 
 [menu]
   [[menu.main]]
