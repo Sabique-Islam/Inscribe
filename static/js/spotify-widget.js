@@ -3,13 +3,16 @@
 
     const API_URL = 'https://spotify-current-track-init.onrender.com/api/current-track';
     const UPDATE_INTERVAL = 10000;
-    const PROGRESS_INTERVAL = 1000;
+    const PROGRESS_INTERVAL = 250;
 
     let currentTrackId = null;
     let progressTimer = null;
     let currentProgress = 0;
     let duration = 0;
     let lastUpdateTime = 0;
+    let isPlaying = false;
+    let progressBar = null;
+    let currentTimeEl = null;
 
     function formatTime(ms) {
         const seconds = Math.floor(ms / 1000);
@@ -25,19 +28,16 @@
     }
 
     function updateProgress() {
-        const progressBar = document.querySelector('.spotify-widget__progress-fill');
-        const currentTimeEl = document.querySelector('.spotify-widget__time-current');
+        if (!isPlaying || !progressBar || !currentTimeEl || duration <= 0) return;
         
-        if (progressBar && currentTimeEl && duration > 0) {
-            const now = Date.now();
-            const elapsed = now - lastUpdateTime;
-            currentProgress = Math.min(currentProgress + elapsed, duration);
-            lastUpdateTime = now;
-            
-            const percentage = (currentProgress / duration) * 100;
-            progressBar.style.width = `${percentage}%`;
-            currentTimeEl.textContent = formatTime(currentProgress);
-        }
+        const now = Date.now();
+        const elapsed = now - lastUpdateTime;
+        currentProgress = Math.min(currentProgress + elapsed, duration);
+        lastUpdateTime = now;
+        
+        const percentage = (currentProgress / duration) * 100;
+        progressBar.style.width = `${percentage}%`;
+        currentTimeEl.textContent = formatTime(currentProgress);
     }
 
     function startProgressTracking() {
@@ -61,7 +61,8 @@
                 <img src="${escapeHtml(albumImage)}" 
                      alt="${escapeHtml(track.album.name)}" 
                      width="60" height="60" 
-                     class="spotify-widget__album-art">
+                     class="spotify-widget__album-art"
+                     onload="this.classList.add('loaded')">
                 <div class="spotify-widget__track-info">
                     <div class="spotify-widget__track-name">${escapeHtml(track.name)}</div>
                     <div class="spotify-widget__artist">by ${artists}</div>
@@ -78,62 +79,68 @@
         `;
     }
 
-    function renderAuthRequired() {
-        return `
-            <div class="spotify-widget__error">
-                Please authorize: <a href="${API_URL.replace('/api/current-track', '/api/login')}" class="spotify-widget__auth-link">Login to Spotify</a>
-            </div>
-        `;
+    function showWidget(widget) {
+        widget.style.display = 'block';
+        widget.classList.add('show');
     }
 
-    function renderNotPlaying() {
-        return '<div class="spotify-widget__empty">Nothing is playing</div>';
+    function hideWidget(widget) {
+        widget.classList.remove('show');
+        setTimeout(() => widget.style.display = 'none', 400);
     }
 
-    function renderError() {
-        return '<div class="spotify-widget__error">Failed to load Spotify data</div>';
+    function animateTrackInfo() {
+        requestAnimationFrame(() => {
+            const trackInfo = document.querySelector('.spotify-widget__track-info');
+            const timeEl = document.querySelector('.spotify-widget__time');
+            
+            if (trackInfo) trackInfo.classList.add('loaded');
+            if (timeEl) timeEl.classList.add('loaded');
+        });
     }
 
     function updateWidget(data) {
         const contentEl = document.querySelector('#spotify-content');
         const statusEl = document.querySelector('#status-text');
         const logoEl = document.querySelector('#spotify-logo');
+        const widget = document.querySelector('#spotify-widget');
 
-        if (!contentEl || !statusEl) return;
+        if (!contentEl || !statusEl || !widget) return;
 
-        if (data.needsAuth) {
-            contentEl.innerHTML = renderAuthRequired();
-            statusEl.textContent = 'Spotify';
+        // Only show widget when actively playing
+        if (data.item && data.is_playing) {
+            const track = data.item;
+            currentProgress = data.progress_ms || 0;
+            duration = track.duration_ms || 0;
+            lastUpdateTime = Date.now();
+            isPlaying = true;
+            statusEl.textContent = 'Listening to Spotify';
+
+            if (logoEl && track.external_urls?.spotify) {
+                logoEl.href = track.external_urls.spotify;
+                logoEl.style.display = 'inline-block';
+            }
+
+            if (currentTrackId !== track.id) {
+                currentTrackId = track.id;
+                contentEl.innerHTML = renderTrack(track);
+                // Cache DOM elements after render
+                progressBar = document.querySelector('.spotify-widget__progress-fill');
+                currentTimeEl = document.querySelector('.spotify-widget__time-current');
+                animateTrackInfo();
+            }
+
+            showWidget(widget);
+            startProgressTracking();
+        } else {
+            // Hide widget when not playing
+            isPlaying = false;
+            progressBar = null;
+            currentTimeEl = null;
+            hideWidget(widget);
             if (logoEl) logoEl.style.display = 'none';
             stopProgressTracking();
-            return;
         }
-
-        if (!data.item || !data.is_playing) {
-            contentEl.innerHTML = renderNotPlaying();
-            statusEl.textContent = 'Spotify';
-            if (logoEl) logoEl.style.display = 'none';
-            stopProgressTracking();
-            return;
-        }
-
-        const track = data.item;
-        currentProgress = data.progress_ms || 0;
-        duration = track.duration_ms || 0;
-        lastUpdateTime = Date.now();
-        statusEl.textContent = 'Listening to Spotify';
-
-        if (logoEl && track.external_urls?.spotify) {
-            logoEl.href = track.external_urls.spotify;
-            logoEl.style.display = 'inline-block';
-        }
-
-        if (currentTrackId !== track.id) {
-            currentTrackId = track.id;
-            contentEl.innerHTML = renderTrack(track);
-        }
-
-        startProgressTracking();
     }
 
     async function fetchAndUpdate() {
@@ -143,11 +150,11 @@
             const data = await response.json();
             updateWidget(data);
         } catch (error) {
-            console.error('Spotify widget error:', error);
-            const contentEl = document.querySelector('#spotify-content');
-            const statusEl = document.querySelector('#status-text');
-            if (contentEl) contentEl.innerHTML = renderError();
-            if (statusEl) statusEl.textContent = 'Spotify';
+            const widget = document.querySelector('#spotify-widget');
+            if (widget) {
+                isPlaying = false;
+                hideWidget(widget);
+            }
             stopProgressTracking();
         }
     }

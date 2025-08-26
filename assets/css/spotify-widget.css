@@ -5,6 +5,15 @@
     background: rgba(255, 255, 255, 1);
     position: relative;
     overflow: hidden;
+    display: none; /* Hidden by default, shown by JS when playing */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.spotify-widget.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
@@ -45,16 +54,32 @@
 .spotify-widget__album-art {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.spotify-widget__album-art.loaded {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .spotify-widget__album-art:hover {
     transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .spotify-widget__track-info {
     flex: 1;
     min-width: 0;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.spotify-widget__track-info.loaded {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .spotify-widget__track-name {
@@ -94,8 +119,9 @@
 .spotify-widget__progress-fill {
     height: 100%;
     background: rgb(0, 0, 0);
-    transition: width 0.1s ease;
+    transition: width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     border-radius: 2px;
+    transform-origin: left;
 }
 
 .spotify-widget__time {
@@ -104,14 +130,14 @@
     font-size: 12px;
     color: rgba(0, 0, 0, 0.6);
     font-family: monospace;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.spotify-widget__error,
-.spotify-widget__empty {
-    color: rgba(0, 0, 0, 0.6);
-    font-style: italic;
-    text-align: center;
-    padding: 10px 0;
+.spotify-widget__time.loaded {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .spotify-widget__auth-link {
