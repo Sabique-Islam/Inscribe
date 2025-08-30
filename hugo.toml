@@ -30,7 +30,7 @@ canonifyURLs = true
   # SEO Settings
   jsonLD = true
 
-  # Dev Links
+  # Portfolio & Dev
   [[params.social]]
     name = "Portfolio"
     icon = "simple:wpexplorer"
@@ -42,16 +42,16 @@ canonifyURLs = true
     url = "https://github.com/Sabique-Islam"
 
   [[params.social]]
+    name = "Bitbucket"
+    icon = "simple:bitbucket"
+    url = "https://bitbucket.org/inscribe-studios"
+
+  [[params.social]]
     name = "LinkedIn"
     icon = "simple:linkedin"
     url = "https://www.linkedin.com/in/sabique-islam/"
 
-  [[params.social]]
-    name = "LeetCode"
-    icon = "simple:leetcode"
-    url = "https://leetcode.com/u/nopejs/"
-
-  # Social Links
+  # Social
   [[params.social]]
     name = "Instagram"
     icon = "simple:instagram"
@@ -60,18 +60,18 @@ canonifyURLs = true
   [[params.social]]
     name = "X"
     icon = "simple:x"
-    url = "https://x.com/Sabique_"
+    url = "https://x.com/nopeJS"
 
-  [[params.social]]
-    name = "Reddit"
-    icon = "simple:reddit"
-    url = "https://www.reddit.com/user/nope-js/"
-
-  # Meh Links
+  # Other
   [[params.social]]
     name = "Mail"
     icon = "simple:gmail"
     url = "mailto:sabiqueislam7@gmail.com"
+
+  [[params.social]]
+    name = "LeetCode"
+    icon = "simple:leetcode"
+    url = "https://leetcode.com/u/nopejs/"
 
   [[params.social]]
     name = "Spotify"
