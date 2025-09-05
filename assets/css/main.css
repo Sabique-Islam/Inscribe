@@ -310,8 +310,22 @@ justify-content: space-between;
   color:white;
   background-color: var(--hovercolor); 
 }
-svg{
-  max-height: 15px;
+/* Keep UI/icon svgs small */
+.si, .soc svg, .icon-svg {
+  max-height: 20px;
+  width: auto;
+}
+
+/* Inline SVGs size fix */
+article .post-content svg,
+.post-content .body svg,
+.post-content svg {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+  max-height: none;
 }
 .soc:hover{
   color: white;
