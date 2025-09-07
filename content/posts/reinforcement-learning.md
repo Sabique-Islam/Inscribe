@@ -1,7 +1,7 @@
 ---
 title: "Reinforcement Learning | Teaching Machines Through Trial and Error"
 description: "A quick dive into Reinforcement Learning - how agents learn by interacting with environments, earning rewards, and improving over time."
-date: 2025-08-26
+date: 2025-09-7
 cover: "/images/RL.svg"
 tldr: Reinforcement Learning is the branch of AI where agents learn by doing - not memorizing data.
 draft: false
