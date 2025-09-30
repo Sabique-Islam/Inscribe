@@ -126,7 +126,7 @@ pre code {
   margin-bottom: 1em;
   margin-left: auto;
   margin-right: auto;
-  max-width: 800px;
+  max-width: 900px;
   padding: 0 1ch;
   word-wrap: break-word;
 }
@@ -285,6 +285,29 @@ article .title {
 .site-description {
 display: flex;
 justify-content: space-between;
+}
+
+/* _index.md styling */
+.home-content {
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-content h1 {
+  margin-top: 1em;
+}
+
+.home-content .theme-banners {
+  margin: 2em 0;
+  text-align: center;
+}
+
+.home-content .theme-banners img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
 
 /* Tags styling */
@@ -469,6 +492,15 @@ Mobile responsive
   
   .toc {
     display: none;
+  }
+  
+  .home-content {
+    padding: 0 1ch;
+    max-width: 100%;
+  }
+  
+  .site-description {
+    flex-direction: column;
   }
 }
 
