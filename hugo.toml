@@ -24,7 +24,7 @@ canonifyURLs = true
   mode = "toggle"
   useCDN = false
   mainSections = ["posts"]
-  favicon = "/favicon.svg"
+  favicon = "/images/icon.svg"
   og_image = "/images/blog-cover.png"
   
   # SEO Settings
