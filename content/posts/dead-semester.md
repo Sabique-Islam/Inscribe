@@ -4,7 +4,7 @@ description: How a random lecture hall idea turned into a slow‑burn Indian col
 date: 2025-08-01
 cover: "/images/deadsemester.png"
 tldr: "The making of Dead Semester — from a random lecture hall thought to a fully planned animated horror‑thriller webseries."
-draft: false
+draft: true
 tags: ["animated series", "zombie horror", "college life", "Indian webseries", "story concept", "horror thriller", "animation"]
 toc: true
 ---

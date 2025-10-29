@@ -4,7 +4,7 @@ description: "A quick dive into Reinforcement Learning - how agents learn by int
 date: 2025-09-07
 cover: "/images/RL.svg"
 tldr: Reinforcement Learning is the branch of AI where agents learn by doing - not memorizing data.
-draft: false
+draft: true
 tags: ["machine learning",  "agents", "ML basics", "reinforcement learning", "trial and error"]
 toc: true
 ---
