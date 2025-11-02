@@ -21,10 +21,10 @@ This blog is where I share what I’m working on, including projects, experiment
 
 ## Connect With Me ➤
 
-- **Portfolio:** [Visit Site](https://sabique.vercel.app/)
+- **Portfolio:** [Visit Site](https://sabique.page/)
 - **GitHub:** [github.com/Sabique-Islam](https://github.com/Sabique-Islam)  
 - **LinkedIn:** [linkedin.com/in/sabique-islam](https://www.linkedin.com/in/sabique-islam/)  
-- **X (Twitter):** [x.com/Sabique_](https://x.com/Sabique_)  
+- **X (Twitter):** [x.com/nopeJS](https://x.com/nopeJS)  
 - **Instagram:** [instagram.com/bunsamosaa](https://www.instagram.com/bunsamosaa/)
 - **Email:** [sabiqueislam7@gmail.com](mailto:sabiqueislam7@gmail.com)  
 
