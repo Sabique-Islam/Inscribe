@@ -113,6 +113,6 @@ The point is to encourage rational thinking. Because the moment we start believi
 
 Every belief I hold today might fall apart tomorrow — and that’s okay. That’s progress. The beauty of thinking is a conversation with yourself that never really ends.
 
-And maybe that's all we ever need — not answers, not conclusions — but the courage to keep asking, and the humility to know we might.
+And maybe that's all we ever need — not answers, not conclusions — but the courage to keep asking, and the humility to know we might be wrong.
 
 > Ahh, too much "maybe's" in a single blog. Anyway Cheers :) 🥂
