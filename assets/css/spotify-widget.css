@@ -64,6 +64,11 @@
     transform: scale(1);
 }
 
+.spotify-widget__album-art.not-playing {
+    opacity: 0.6;
+    filter: grayscale(30%);
+}
+
 .spotify-widget__album-art:hover {
     transform: scale(1.02);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
