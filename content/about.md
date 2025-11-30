@@ -28,7 +28,11 @@ This blog is where I share what I’m working on, including projects, experiment
 - **Instagram:** [instagram.com/bunsamosaa](https://www.instagram.com/bunsamosaa/)
 - **Email:** [sabiqueislam7@gmail.com](mailto:sabiqueislam7@gmail.com)  
 
+## GitHub Activity ➤
+
+![Sabique's GitHub Contribution Graph](https://ghchart.rshah.org/1a1a2e/Sabique-Islam)
+
 ## Get in Touch ➤
 
-Got something to say? Want to collaborate? Or maybe just debate over tabs vs spaces?  
+Got something to say? Want to collaborate? 
 You can reach out using any of the links above.

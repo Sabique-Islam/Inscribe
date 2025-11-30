@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    const API_URL = 'https://spotify-current-track-init.onrender.com/api/current-track';
+    const API_URL = 'https://sabique.vercel.app/api/spotify/now-playing';
     const UPDATE_INTERVAL = 10000;
     const PROGRESS_INTERVAL = 250;
 
