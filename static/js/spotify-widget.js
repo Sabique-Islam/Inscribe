@@ -18,8 +18,7 @@
     function formatTime(ms) {
         const seconds = Math.floor(ms / 1000);
         const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = seconds % 60;
-        return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+        return `${minutes}:${(seconds % 60).toString().padStart(2, '0')}`;
     }
 
     function escapeHtml(text) {
@@ -30,14 +29,10 @@
 
     function updateProgress() {
         if (!isPlaying || !progressBar || !currentTimeEl || duration <= 0) return;
-        
         const now = Date.now();
-        const elapsed = now - lastUpdateTime;
-        currentProgress = Math.min(currentProgress + elapsed, duration);
+        currentProgress = Math.min(currentProgress + (now - lastUpdateTime), duration);
         lastUpdateTime = now;
-        
-        const percentage = (currentProgress / duration) * 100;
-        progressBar.style.width = `${percentage}%`;
+        progressBar.style.width = `${(currentProgress / duration) * 100}%`;
         currentTimeEl.textContent = formatTime(currentProgress);
     }
 
@@ -53,43 +48,37 @@
         }
     }
 
-    function renderTrack(track, isCurrentlyPlaying = true) {
-        const artists = track.artists.map(artist => escapeHtml(artist.name)).join(', ');
-        const albumImage = track.album.images[2]?.url || track.album.images[0]?.url || '';
+    function setLogoRotation(spinning) {
+        const logoEl = document.querySelector('#spotify-logo');
+        if (logoEl) logoEl.classList.toggle('spinning', spinning);
+    }
 
-        const progressHtml = isCurrentlyPlaying ? `
-            <div class="spotify-widget__progress">
-                <div class="spotify-widget__progress-fill"></div>
-            </div>
-            <div class="spotify-widget__time">
-                <span class="spotify-widget__time-current">${formatTime(currentProgress)}</span>
-                <span class="spotify-widget__time-total">${formatTime(duration)}</span>
-            </div>
-        ` : '';
+    function renderTrack(track, showProgress) {
+        const artists = Array.isArray(track.artists)
+            ? track.artists.map(a => escapeHtml(typeof a === 'string' ? a : a.name)).join(', ')
+            : escapeHtml(track.artist || 'Unknown Artist');
+        const albumImage = track.albumImageUrl || track.album?.images?.[0]?.url || '';
+        const albumName = typeof track.album === 'string' ? track.album : (track.album?.name || 'Unknown Album');
+        const trackName = track.title || track.name || 'Unknown Track';
 
         return `
             <div class="spotify-widget__track">
-                <img src="${escapeHtml(albumImage)}" 
-                     alt="${escapeHtml(track.album.name)}" 
-                     width="60" height="60" 
-                     class="spotify-widget__album-art${!isCurrentlyPlaying ? ' not-playing' : ''}"
-                     onload="this.classList.add('loaded')">
+                <img src="${escapeHtml(albumImage)}" alt="${escapeHtml(albumName)}" width="60" height="60" 
+                     class="spotify-widget__album-art${showProgress ? '' : ' not-playing'}" onload="this.classList.add('loaded')">
                 <div class="spotify-widget__track-info">
-                    <div class="spotify-widget__track-name">${escapeHtml(track.name)}</div>
+                    <div class="spotify-widget__track-name">${escapeHtml(trackName)}</div>
                     <div class="spotify-widget__artist">by ${artists}</div>
-                    <div class="spotify-widget__album">on ${escapeHtml(track.album.name)}</div>
+                    <div class="spotify-widget__album">on ${escapeHtml(albumName)}</div>
                 </div>
             </div>
-            ${progressHtml}
+            ${showProgress ? `<div class="spotify-widget__progress"><div class="spotify-widget__progress-fill"></div></div>
+            <div class="spotify-widget__time"><span class="spotify-widget__time-current">${formatTime(currentProgress)}</span><span class="spotify-widget__time-total">${formatTime(duration)}</span></div>` : ''}
         `;
     }
 
     function animateTrackInfo() {
-        const trackInfo = document.querySelector('.spotify-widget__track-info');
-        const timeEl = document.querySelector('.spotify-widget__time');
-        
-        if (trackInfo) trackInfo.classList.add('loaded');
-        if (timeEl) timeEl.classList.add('loaded');
+        document.querySelector('.spotify-widget__track-info')?.classList.add('loaded');
+        document.querySelector('.spotify-widget__time')?.classList.add('loaded');
     }
 
     function updateWidget(data) {
@@ -100,62 +89,63 @@
 
         if (!contentEl || !statusEl || !widget) return;
 
-        const track = data.item;
-        
-        if (track) {
+        const track = data.item || data;
+        const playing = data.is_playing ?? data.isPlaying ?? false;
+        const hasTrack = track && (track.name || track.title);
+
+        if (hasTrack) {
             lastPlayedTrack = track;
-            
-            if (data.is_playing) {
-                currentProgress = data.progress_ms || 0;
-                duration = track.duration_ms || 0;
+            const trackUrl = track.external_urls?.spotify || track.songUrl || track.url;
+
+            if (playing) {
+                currentProgress = data.progress_ms || data.progressMs || 0;
+                duration = track.duration_ms || track.durationMs || 0;
                 lastUpdateTime = Date.now();
                 isPlaying = true;
                 statusEl.textContent = 'Listening to Spotify';
+                setLogoRotation(true);
 
-                if (logoEl && track.external_urls?.spotify) {
-                    logoEl.href = track.external_urls.spotify;
+                if (logoEl && trackUrl) {
+                    logoEl.href = trackUrl;
                     logoEl.style.display = 'inline-block';
                 }
 
-                if (currentTrackId !== track.id) {
-                    currentTrackId = track.id;
+                if (currentTrackId !== (track.id || track.title)) {
+                    currentTrackId = track.id || track.title;
                     contentEl.innerHTML = renderTrack(track, true);
                     progressBar = document.querySelector('.spotify-widget__progress-fill');
                     currentTimeEl = document.querySelector('.spotify-widget__time-current');
                     animateTrackInfo();
                 }
-
                 startProgressTracking();
             } else {
                 isPlaying = false;
                 stopProgressTracking();
-                progressBar = null;
-                currentTimeEl = null;
-                
+                setLogoRotation(false);
                 statusEl.textContent = 'Last Played :)';
-                
-                if (logoEl && track.external_urls?.spotify) {
-                    logoEl.href = track.external_urls.spotify;
+
+                if (logoEl && trackUrl) {
+                    logoEl.href = trackUrl;
                     logoEl.style.display = 'inline-block';
                 }
-
                 contentEl.innerHTML = renderTrack(track, false);
                 animateTrackInfo();
             }
         } else if (lastPlayedTrack) {
             isPlaying = false;
             stopProgressTracking();
-            
+            setLogoRotation(false);
             statusEl.textContent = 'Last Played :)';
-            
-            if (logoEl && lastPlayedTrack.external_urls?.spotify) {
-                logoEl.href = lastPlayedTrack.external_urls.spotify;
+
+            const trackUrl = lastPlayedTrack.external_urls?.spotify || lastPlayedTrack.songUrl || lastPlayedTrack.url;
+            if (logoEl && trackUrl) {
+                logoEl.href = trackUrl;
                 logoEl.style.display = 'inline-block';
             }
-
             contentEl.innerHTML = renderTrack(lastPlayedTrack, false);
             animateTrackInfo();
         } else {
+            setLogoRotation(false);
             statusEl.textContent = 'Connecting to Spotify...';
             contentEl.innerHTML = '<p style="color: rgba(0, 0, 0, 0.6); font-size: 14px;">Loading...</p>';
             if (logoEl) logoEl.style.display = 'none';
@@ -165,20 +155,19 @@
     async function fetchAndUpdate() {
         try {
             const response = await fetch(API_URL);
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
             const data = await response.json();
+            if (response.status === 204 || !data || Object.keys(data).length === 0) {
+                if (lastPlayedTrack) updateWidget({ isPlaying: false, ...lastPlayedTrack });
+                return;
+            }
             updateWidget(data);
-        } catch (error) {
-            console.error('Spotify widget error:', error);
-            
+        } catch {
             if (lastPlayedTrack) {
-                const statusEl = document.querySelector('#status-text');
-                const contentEl = document.querySelector('#spotify-content');
-                
                 isPlaying = false;
                 stopProgressTracking();
-                if (statusEl) statusEl.textContent = 'Last Played :)';
-                if (contentEl) contentEl.innerHTML = renderTrack(lastPlayedTrack, false);
+                setLogoRotation(false);
+                document.querySelector('#status-text').textContent = 'Last Played :)';
+                document.querySelector('#spotify-content').innerHTML = renderTrack(lastPlayedTrack, false);
             }
         }
     }
@@ -186,10 +175,8 @@
     function init() {
         const widget = document.querySelector('#spotify-widget');
         if (!widget) return;
-
         widget.style.display = 'block';
         widget.classList.add('show');
-        
         fetchAndUpdate();
         setInterval(fetchAndUpdate, UPDATE_INTERVAL);
     }
