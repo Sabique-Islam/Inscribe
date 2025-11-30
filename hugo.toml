@@ -42,9 +42,9 @@ canonifyURLs = true
     url = "https://github.com/Sabique-Islam"
 
   [[params.social]]
-    name = "Bitbucket"
-    icon = "simple:bitbucket"
-    url = "https://bitbucket.org/inscribe-studios"
+    name = "GitLab"
+    icon = "simple:gitlab"
+    url = "https://gitlab.com/nopejs"
 
   [[params.social]]
     name = "LinkedIn"
