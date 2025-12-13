@@ -52,10 +52,6 @@ canonifyURLs = true
     url = "https://www.linkedin.com/in/sabique-islam/"
 
   # Social
-  [[params.social]]
-    name = "Instagram"
-    icon = "simple:instagram"
-    url = "https://www.instagram.com/bunsamosaa/"
 
   [[params.social]]
     name = "X"
