@@ -7,8 +7,7 @@ cover = "/images/banner.svg"
 +++
 
 <div class="theme-banners">
-  <img src="/images/banner.svg" alt="Cover Image" class="banner-dark" />
-  <img src="/images/banner-light.svg" alt="Cover Image" class="banner-light" />
+  <img src="/images/banner.svg" alt="Cover Image" class="theme-banner" />
 </div>
 
 # Hey there!

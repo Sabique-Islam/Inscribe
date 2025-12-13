@@ -1,39 +1,34 @@
 :root{
---maincolor: rgb(0, 0, 0);
---bordercl:rgb(255, 252, 252);
+--maincolor: #141414;
+--bordercl: #e2e2e2;
 --callouctcolor:dodgerblue;
---hovercolor:rgb(0, 0, 0);
---darkMaincolor: #ffffff;
+--hovercolor: #141414;
+--darkMaincolor: #e2e2e2;
+}
+
+html {
+  background-color: #141414;
 }
 
 body {
-  color: white;
-  background-color: #000000;
-}
-
-/* Hide gradient in dark mode */
-body::before {
-  display: none;
-}
-
-body::after {
-  display: none;
+  color: #e2e2e2;
+  background-color: #141414;
 }
 
 ::-moz-selection {
-  background: #ffffff !important;
-  color: #000000 !important;
+  background: #e2e2e2 !important;
+  color: #141414 !important;
   text-shadow: none;
 }
 
 ::selection {
-  background: #ffffff !important;
-  color: #000000 !important;
+  background: #e2e2e2 !important;
+  color: #141414 !important;
   text-shadow: none;
 }
 
 hr {
-  border-top: 3px dotted white;
+  border-top: 3px dotted #e2e2e2;
 }
 code {
   background-color: lightblue;
@@ -85,8 +80,8 @@ h6::before {
 }
 
 .toc {
-  background-color: #000000;
-  color: white;
+  background-color: #141414;
+  color: #e2e2e2;
 }
 
 a {
@@ -94,8 +89,8 @@ a {
   color: inherit;
 }
 a:hover {
-  background: white;
-  color: #000000;
+  background: #e2e2e2;
+  color: #141414;
 }
 
 .site-description a {
@@ -119,11 +114,11 @@ a:hover {
 }
 .tags a:hover {
   background-color: var(--darkMaincolor) !important;
-  color: #000000 !important;
+  color: #141414 !important;
 }
 
 .site-title a {
-  color: white;
+  color: #e2e2e2;
   text-decoration: none !important;
 }
 
@@ -137,7 +132,7 @@ a:hover {
 }
 .soc:hover {
   background-color: var(--darkMaincolor) !important;
-  color: #000000 !important;
+  color: #141414 !important;
 }
 .draft-label {
   color: var(--darkMaincolor);
@@ -165,7 +160,7 @@ a:hover {
 .highlight pre code[class*='language-json']::before{
   content: 'json';
   background: dodgerblue;
-   color: #000000 
+   color: #141414 
 }
 .highlight pre code[class*='language-python']::before,
 .highlight pre code[class*='language-py']::before {
@@ -219,74 +214,27 @@ a:hover {
 }
 
 .si-x::before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>') !important;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23e2e2e2" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>') !important;
 }
 
-/* Spotify Widget Dark Theme */
-.spotify-widget {
-  background-color: #000000 !important;
-  border-color: #000000 !important;
+/* Spotify Widget Dark Theme - Override CSS Variables */
+:root {
+  --spotify-bg: #141414;
+  --spotify-text: #e2e2e2;
+  --spotify-text-secondary: #ccc;
+  --spotify-text-muted: #888;
+  --spotify-progress-bg: #333;
+  --spotify-progress-fill: #e2e2e2;
+  --spotify-shadow: rgba(255, 255, 255, 0.1);
 }
 
-.spotify-widget__status {
-  color: #888 !important;
-}
-
-.spotify-widget__content {
-  color: #fff !important;
-}
-
-.spotify-widget__track-name {
-  color: #fff !important;
-}
-
-.spotify-widget__artist {
-  color: #ccc !important;
-}
-
-.spotify-widget__album {
-  color: #888 !important;
-}
-
-.spotify-widget__progress {
-  background-color: #333 !important;
-}
-
-.spotify-widget__progress-fill {
-  background: #ffffff !important;
-}
-
-.spotify-widget__time {
-  color: #888 !important;
-}
-
-.spotify-widget__error,
-.spotify-widget__empty {
-  color: #888 !important;
-}
-
-.spotify-widget__album-art {
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1) !important;
-}
-
-.spotify-widget__logo {
-  color: #1db954 !important;
-}
-
-.theme-banners img {
-  border: 3px solid #000000;
-}
-
-.banner-light {
-  display: none !important;
-}
-
-.banner-dark {
-  display: block !important;
+/* Remove invert filter for dark theme - banner.svg is native dark */
+.theme-banner {
+  filter: invert(0);
 }
 
 .list-item {
-  border-bottom: 3px dotted #ffffff !important;
+  border-bottom: 3px dotted #e2e2e2 !important;
 }
 
 .list-item:last-child {
@@ -294,12 +242,12 @@ a:hover {
 }
 
 .list-item .title a:hover {
-  color: #000000 !important;
-  background: #ffffff !important;
+  color: #141414 !important;
+  background: #e2e2e2 !important;
 }
 
 .post-cover {
-  background-color: #000000 !important;
+  background-color: #141414 !important;
 }
 
 .post-content time {
@@ -311,8 +259,8 @@ a:hover {
 }
 
 .post-content .readmore:hover {
-  color: #000000 !important;
-  background: #ffffff !important;
+  color: #141414 !important;
+  background: #e2e2e2 !important;
 }
 
 .post-card-no-cover time {
@@ -324,6 +272,6 @@ a:hover {
 }
 
 .post-card-no-cover .readmore:hover {
-  color: #000000 !important;
-  background: #ffffff !important;
+  color: #141414 !important;
+  background: #e2e2e2 !important;
 }

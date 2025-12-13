@@ -1,24 +1,35 @@
 :root{
---maincolor: rgb(0, 0, 0);
---bordercl:rgb(0, 0, 0);
+--maincolor: #1e1e1e;
+--bordercl: #1e1e1e;
 --callouctcolor:dodgerblue;
---hovercolor:rgb(0, 0, 0);
---darkMaincolor: #ffffff;
+--hovercolor: #1e1e1e;
+--darkMaincolor: #e2e2e2;
+--theme-transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 html {
   color: #232333;
   font-family: 'Roboto Mono', monospace;
   font-size: 15px;
   line-height: 1.6em;
-  zoom: 1.30;
+  zoom: 1.1;
+  background-color: #f5f5f5;
+  transition: var(--theme-transition);
 }
 body{
   display: block;
   margin: 8px;
   margin-bottom: 0;
+  background-color: #f5f5f5;
+  transition: var(--theme-transition);
 }
-* {
+*,
+*::before,
+*::after {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              border-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+              box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 ::selection {
@@ -33,7 +44,7 @@ p {
 
 hr {
   border: 0;
-  border-top: 3px dotted black;
+  border-top: 3px dotted #1e1e1e;
   margin: 1em 0;
 }
 
@@ -42,12 +53,14 @@ blockquote {
   color: #737373;
   margin: 0;
   padding-left: 1em;
+  transition: var(--theme-transition);
 }
 
 a {
   border-bottom: 3px solid var(--maincolor);
   color: inherit;
   text-decoration: none;
+  transition: var(--theme-transition);
 }
 a:hover {
     background-color: var(--hovercolor);
@@ -168,7 +181,7 @@ h6::before { color: var(--maincolor); content: '###### '; }
 
 .meta .separator {
   margin: 0 0.5em;
-  color: #000000;
+  color: #1e1e1e;
 }
 
 .post-container {
@@ -256,7 +269,7 @@ article .title {
 }
 
 .callout-alert {
-  color: #000000;
+  color: #1e1e1e;
   background-color: transparent;
   border-width: 3px;
   border-style: solid;
@@ -264,11 +277,11 @@ article .title {
 }
 
 .callout-custom {
-  color: #000000;
+  color: #1e1e1e;
 }
 
 .callout-tip {
-  color: #000000;
+  color: #1e1e1e;
   background-color: transparent;
   border-width: 3px;
   border-style: solid;
@@ -276,7 +289,7 @@ article .title {
 }
 
 .callout-warning {
-  color: #000000;
+  color: #1e1e1e;
   background-color: transparent;
   border-width: 3px;
   border-style: solid;
@@ -370,9 +383,9 @@ article .post-content svg,
   -webkit-overflow-scrolling: touch;
 }
 .highlight pre code[class*="language-"]::before {
-  background: black;
+  background: #1e1e1e;
   border-radius: 0 0 0.25rem 0.25rem;
-  color: white;
+  color: #e2e2e2;
   font-size: 12px;
   letter-spacing: 0.025rem;
   padding: 0.1rem 0.5rem;
@@ -405,7 +418,7 @@ color:white
 .highlight pre code[class*='language-json']::before{
 content: 'json';
 background: dodgerblue;
- color: #000000 
+ color: #1e1e1e 
 }
 .highlight pre code[class*='language-python']::before,
 .highlight pre code[class*='language-py']::before {
@@ -513,28 +526,16 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 
-.banner-light {
-  display: block;
-}
-
-.banner-dark {
-  display: none;
-}
-
-body:has(#darkModeStyle:not([disabled])) .banner-light,
-body:has(#darkModeStyle[disabled="false"]) .banner-light {
-  display: none;
-}
-
-body:has(#darkModeStyle:not([disabled])) .banner-dark,
-body:has(#darkModeStyle[disabled="false"]) .banner-dark {
-  display: block;
+/* Banner inversion for light theme - banner.svg is designed for dark theme */
+.theme-banner {
+  filter: invert(1);
+  transition: filter 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Post list item styles */
 .list-item {
   margin-bottom: 2.5em;
-  border-bottom: 3px dotted #000000;
+  border-bottom: 3px dotted #1e1e1e;
   padding-bottom: 2em;
 }
 
@@ -554,8 +555,8 @@ body:has(#darkModeStyle[disabled="false"]) .banner-dark {
 }
 
 .list-item .title a:hover {
-  color: white;
-  background: black;
+  color: #e2e2e2;
+  background: #1e1e1e;
 }
 
 /* Post card with cover image */
@@ -611,8 +612,8 @@ body:has(#darkModeStyle[disabled="false"]) .banner-dark {
 }
 
 .post-content .readmore:hover {
-  color: white;
-  background: black;
+  color: #e2e2e2;
+  background: #1e1e1e;
 }
 
 /* Post card without cover image (fallback) */
@@ -640,8 +641,8 @@ body:has(#darkModeStyle[disabled="false"]) .banner-dark {
 }
 
 .post-card-no-cover .readmore:hover {
-  color: white;
-  background: black;
+  color: #e2e2e2;
+  background: #1e1e1e;
 }
 
 /* Responsive design */

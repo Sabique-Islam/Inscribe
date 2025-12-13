@@ -1,21 +1,32 @@
 /* Spotify Widget Styles */
+:root {
+    --spotify-bg: #f5f5f5;
+    --spotify-text: #1e1e1e;
+    --spotify-text-secondary: rgba(30, 30, 30, 0.7);
+    --spotify-text-muted: rgba(30, 30, 30, 0.6);
+    --spotify-progress-bg: rgba(30, 30, 30, 0.1);
+    --spotify-progress-fill: #1e1e1e;
+    --spotify-shadow: rgba(0, 0, 0, 0.2);
+    --spotify-green: #1db954;
+    --theme-transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 .spotify-widget {
     margin: 20px 0;
     padding: 20px;
-    background: rgba(255, 255, 255, 1);
+    background: var(--spotify-bg);
     position: relative;
     overflow: hidden;
-    display: none; /* Hidden by default, shown by JS when playing */
+    display: none;
     opacity: 0;
     transform: translateY(10px);
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: var(--theme-transition);
 }
 
 .spotify-widget.show {
     opacity: 1;
     transform: translateY(0);
 }
-
 
 .spotify-widget__header {
     display: flex;
@@ -28,7 +39,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #1db954;
+    color: var(--spotify-green);
     text-decoration: none;
     font-size: 18px;
     opacity: 0.8;
@@ -54,13 +65,15 @@
 
 .spotify-widget__status {
     font-size: 14px;
-    color: rgba(0, 0, 0, 0.7);
+    color: var(--spotify-text-secondary);
     margin: 0;
     font-weight: 500;
+    transition: color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .spotify-widget__content {
-    color: rgba(0, 0, 0, 0.8);
+    color: var(--spotify-text);
+    transition: color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .spotify-widget__track {
@@ -72,7 +85,7 @@
 
 .spotify-widget__album-art {
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px var(--spotify-shadow);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     opacity: 0;
     transform: scale(0.9);
@@ -90,7 +103,7 @@
 
 .spotify-widget__album-art:hover {
     transform: scale(1.02);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 16px var(--spotify-shadow);
 }
 
 .spotify-widget__track-info {
@@ -109,41 +122,46 @@
 .spotify-widget__track-name {
     font-weight: 600;
     margin-bottom: 4px;
-    color: rgba(0, 0, 0, 0.9);
+    color: var(--spotify-text);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    transition: color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .spotify-widget__artist {
-    color: rgba(0, 0, 0, 0.7);
+    color: var(--spotify-text-secondary);
     margin-bottom: 2px;
     font-size: 14px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    transition: color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .spotify-widget__album {
-    color: rgba(0, 0, 0, 0.6);
+    color: var(--spotify-text-muted);
     font-size: 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
+    transition: color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+};
 
 .spotify-widget__progress {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--spotify-progress-bg);
     height: 4px;
     border-radius: 2px;
     margin: 10px 0;
     overflow: hidden;
+    transition: background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .spotify-widget__progress-fill {
     height: 100%;
-    background: rgb(0, 0, 0);
-    transition: width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background: var(--spotify-progress-fill);
+    transition: width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+                background-color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     border-radius: 2px;
     transform-origin: left;
 }
@@ -152,7 +170,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 12px;
-    color: rgba(0, 0, 0, 0.6);
+    color: var(--spotify-progress-fill);
     font-family: monospace;
     opacity: 0;
     transform: translateY(5px);
@@ -165,9 +183,13 @@
 }
 
 .spotify-widget__auth-link {
-    color: #1db954;
+    color: var(--spotify-green);
     text-decoration: none;
     font-weight: 500;
+}
+
+.spotify-widget__auth-link:hover {
+    text-decoration: underline;
 }
 
 .spotify-widget__auth-link:hover {
