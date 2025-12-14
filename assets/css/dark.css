@@ -21,12 +21,6 @@ body {
   text-shadow: none;
 }
 
-::selection {
-  background: #e2e2e2 !important;
-  color: #141414 !important;
-  text-shadow: none;
-}
-
 hr {
   border-top: 3px dotted #e2e2e2;
 }
