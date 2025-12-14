@@ -127,7 +127,7 @@ The reviewers came around to check on progress periodically. We noticed they spe
 
 With a decent 3–4 hrs of sleep, I woke up, got freshened up, had little breakfast. We were exhausted, a mix of drained and proud, just sitting there, and celebrating 100+ github commits.
 
-In the last review before the announcements, one of the mentors had asked us to **clone the [curl](https://github.com/curl/curl) repo and run it with Catalyst**. Apparently, the Alpine setup behaves differently across OSes, and he wanted to check if our `catalyst.yml` matched what actually got installed. We opened it… and realized Alpine itself wasn’t even listed in the YAML. Lmao. He ran through it, nodded, and said, *“Ok, I guys, I checked what I wanted to see”*. From the tone and expression it was clear — we weren’t making it to the Top 7.
+In the last review before the announcements, one of the mentors had asked us to **clone the [curl](https://github.com/curl/curl) repo and run it with Catalyst**. Apparently, the Alpine setup behaves differently across OSes, and he wanted to check if our `catalyst.yml` matched what actually got installed. We opened it… and realized Alpine itself wasn’t even listed in the YAML. Lmao. He ran through it, nodded, and said, *“Ok guys, I checked what I wanted to see”*. From the tone and expression it was clear — we weren’t making it to the Top 7.
 
 Then came the moment — the announcer stepped up to declare the Top 7 teams for the final presentation. One by one, the names were called... and, yep, we weren’t there :)
 

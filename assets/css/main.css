@@ -33,8 +33,8 @@ body{
 }
 
 ::selection {
-  background: var(--maincolor);
-  color: #fff;
+  background: yellow;
+  color: var(--maincolor);
 }
 
 p {
