@@ -227,10 +227,6 @@ a:hover {
   filter: invert(0);
 }
 
-.list-item {
-  border-bottom: 3px dotted #e2e2e2 !important;
-}
-
 .list-item:last-child {
   border-bottom: none !important;
 }

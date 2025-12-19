@@ -535,7 +535,6 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 /* Post list item styles */
 .list-item {
   margin-bottom: 2.5em;
-  border-bottom: 3px dotted #1e1e1e;
   padding-bottom: 2em;
 }
 
