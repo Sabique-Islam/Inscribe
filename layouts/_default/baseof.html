@@ -7,5 +7,10 @@
         {{- block "main" . }}{{- end }}
         {{- partial "footer.html" . -}}
         </div>
+        
+        <div id="comet-container"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        {{ $comet := resources.Get "js/comet.js" | minify | fingerprint }}
+        <script src="{{ $comet.RelPermalink }}" defer></script>
     </body>
 </html>
