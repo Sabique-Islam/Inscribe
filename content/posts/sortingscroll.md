@@ -11,4 +11,3 @@ toc: true
 
 ---
 
-[WIP]

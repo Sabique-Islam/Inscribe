@@ -34,7 +34,14 @@ canonifyURLs = true
   [[params.social]]
     name = "Portfolio"
     icon = "simple:wpexplorer"
-    url = "https://sabique.vercel.app/"
+    url = "https://sabique.page/"
+
+  [[params.social]]
+    name = "Mail"
+    icon = "simple:gmail"
+    url = "mailto:mail@nopejs.me"
+
+  # Social
 
   [[params.social]]
     name = "GitHub"
@@ -47,27 +54,14 @@ canonifyURLs = true
     url = "https://gitlab.com/nopejs"
 
   [[params.social]]
-    name = "LinkedIn"
-    icon = "simple:linkedin"
-    url = "https://www.linkedin.com/in/sabique-islam/"
-
-  # Social
-
-  [[params.social]]
     name = "X"
     icon = "simple:x"
     url = "https://x.com/nopeJS"
 
-  # Other
   [[params.social]]
-    name = "Mail"
-    icon = "simple:gmail"
-    url = "mailto:sabiqueislam7@gmail.com"
-
-  [[params.social]]
-    name = "LeetCode"
-    icon = "simple:leetcode"
-    url = "https://leetcode.com/u/nopejs/"
+    name = "LinkedIn"
+    icon = "simple:linkedin"
+    url = "https://www.linkedin.com/in/sabique-islam/"
 
 [menu]
   [[menu.main]]

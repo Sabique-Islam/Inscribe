@@ -14,19 +14,21 @@ This blog is where I share what I’m working on, including projects, experiment
 
 ## What You'll Find Here ➤
 
-- **Programming tips & tutorials** → real-world stuff I’ve tried and tested
+- **Programming tips & tutorials** → real-world stuff I’ve tried
 - **Project breakdowns** → behind-the-scenes on my experiments, apps, and random builds
-- **Tech takes & opinions** → sometimes spicy, always honest
+- **Tech takes & opinions**
 - **Best practices** → the good habits I’ve picked up (and the bad ones I’m still unlearning)
 
 ## Connect With Me ➤
 
 - **Portfolio:** [Visit Site](https://sabique.page/)
 - **GitHub:** [github.com/Sabique-Islam](https://github.com/Sabique-Islam)  
+- **GitLab:** [gitlab.com/nopejs](https://gitlab.com/nopejs)
 - **LinkedIn:** [linkedin.com/in/sabique-islam](https://www.linkedin.com/in/sabique-islam/)  
 - **X (Twitter):** [x.com/nopeJS](https://x.com/nopeJS)  
 - **Instagram:** [instagram.com/bunsamosaa](https://www.instagram.com/bunsamosaa/)
 - **Email:** [sabiqueislam7@gmail.com](mailto:sabiqueislam7@gmail.com)  
+- **LeetCode:** [leetcode.com/u/nopejs/](https://leetcode.com/u/nopejs/)
 
 ## GitHub Activity ➤
 
