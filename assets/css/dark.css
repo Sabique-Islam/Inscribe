@@ -240,10 +240,6 @@ a:hover {
   background: #e2e2e2 !important;
 }
 
-.post-cover {
-  background-color: #141414 !important;
-}
-
 .post-content time {
   color: #888 !important;
 }
@@ -253,19 +249,6 @@ a:hover {
 }
 
 .post-content .readmore:hover {
-  color: #141414 !important;
-  background: #e2e2e2 !important;
-}
-
-.post-card-no-cover time {
-  color: #888 !important;
-}
-
-.post-card-no-cover .readmore {
-  color: var(--darkMaincolor) !important;
-}
-
-.post-card-no-cover .readmore:hover {
   color: #141414 !important;
   background: #e2e2e2 !important;
 }
