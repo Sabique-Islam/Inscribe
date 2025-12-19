@@ -1,6 +1,6 @@
 /* Spotify Widget Styles */
 :root {
-    --spotify-bg: #f5f5f5;
+    --spotify-bg: #e2e2e2;
     --spotify-text: #1e1e1e;
     --spotify-text-secondary: rgba(30, 30, 30, 0.7);
     --spotify-text-muted: rgba(30, 30, 30, 0.6);
