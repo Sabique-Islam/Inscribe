@@ -4,7 +4,7 @@ description: A personal account of our time at HashCode 13.0
 date: 2025-10-26
 cover: "/images/hashcode-stickers.jpeg"
 tldr: "Our experience at HashCode 13.0, from start to finish."
-draft: false
+draft: true
 tags: ["hackathon"]
 toc: true
 ---

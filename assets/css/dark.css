@@ -6,6 +6,11 @@
 --darkMaincolor: #e2e2e2;
 }
 
+::selection {
+  background:#8c7fe4;
+  color: var(--maincolor);
+}
+
 html {
   background-color: #141414;
 }
