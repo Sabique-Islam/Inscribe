@@ -29,6 +29,13 @@ canonifyURLs = true
   
   # SEO Settings
   jsonLD = true
+  
+  # Social Media Metadata
+  twitter_handle = "@nopeJS"
+  twitter_creator = "@nopeJS"
+  
+  # Automatically generates social preview images for all pages
+  screenshot_api_enabled = true
 
   # Portfolio & Dev
   [[params.social]]

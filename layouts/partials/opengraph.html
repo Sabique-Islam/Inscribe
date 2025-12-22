@@ -1,0 +1,48 @@
+{{- /* Custom Open Graph Meta Tags */ -}}
+{{- $title := .Title -}}
+{{- $description := .Description | default .Summary | default .Site.Params.description -}}
+{{- $url := .Permalink | absURL -}}
+{{- $siteName := .Site.Title -}}
+{{- $author := .Params.author | default .Site.Params.author -}}
+
+{{- /* Determine the image to use */ -}}
+{{- $image := "" -}}
+{{- if .Params.image -}}
+  {{- $image = .Params.image | absURL -}}
+{{- else if .Params.og_image -}}
+  {{- $image = .Params.og_image | absURL -}}
+{{- else if .Site.Params.og_image -}}
+  {{- $image = (.Site.Params.og_image | absURL) -}}
+{{- else -}}
+  {{- /* Use microlink.io screenshot API - no API key needed! */ -}}
+  {{- $encodedURL := $url | urlquery -}}
+  {{- $image = printf "https://api.microlink.io/?url=%s&screenshot=true&meta=false&embed=screenshot.url" $encodedURL -}}
+{{- end -}}
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:url" content="{{ $url }}" />
+<meta property="og:site_name" content="{{ $siteName }}" />
+<meta property="og:image" content="{{ $image }}" />
+<meta property="og:image:alt" content="{{ $title }}" />
+<meta property="og:locale" content="{{ .Site.Language.Lang | default "en_US" }}" />
+
+{{- /* Article specific tags */ -}}
+{{- if .IsPage -}}
+  {{- if not .PublishDate.IsZero -}}
+<meta property="article:published_time" content="{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}" />
+  {{- end -}}
+  {{- if not .Lastmod.IsZero -}}
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}" />
+  {{- end -}}
+  {{- with $author -}}
+<meta property="article:author" content="{{ . }}" />
+  {{- end -}}
+  {{- with .Params.tags -}}
+    {{- range first 6 . -}}
+<meta property="article:tag" content="{{ . }}" />
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

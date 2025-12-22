@@ -1,0 +1,41 @@
+{{- /* Custom Twitter Card Meta Tags */ -}}
+{{- $title := .Title -}}
+{{- $description := .Description | default .Summary | default .Site.Params.description -}}
+{{- $url := .Permalink | absURL -}}
+{{- $twitterHandle := .Site.Params.twitter_handle | default "@inscribe_studio" -}}
+{{- $twitterCreator := .Params.twitter_creator | default .Site.Params.twitter_creator | default $twitterHandle -}}
+
+{{- /* Determine the image to use */ -}}
+{{- $image := "" -}}
+{{- if .Params.image -}}
+  {{- $image = .Params.image | absURL -}}
+{{- else if .Params.twitter_image -}}
+  {{- $image = .Params.twitter_image | absURL -}}
+{{- else if .Site.Params.og_image -}}
+  {{- $image = (.Site.Params.og_image | absURL) -}}
+{{- else -}}
+  {{- /* Use microlink.io screenshot API - no API key needed! */ -}}
+  {{- $encodedURL := $url | urlquery -}}
+  {{- $image = printf "https://api.microlink.io/?url=%s&screenshot=true&meta=false&embed=screenshot.url" $encodedURL -}}
+{{- end -}}
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $description }}" />
+<meta name="twitter:url" content="{{ $url }}" />
+<meta name="twitter:image" content="{{ $image }}" />
+<meta name="twitter:image:alt" content="{{ $title }}" />
+<meta name="twitter:site" content="{{ $twitterHandle }}" />
+<meta name="twitter:creator" content="{{ $twitterCreator }}" />
+
+{{- if .IsPage -}}
+  {{- with .Params.author | default .Site.Params.author -}}
+<meta name="twitter:label1" content="Written by" />
+<meta name="twitter:data1" content="{{ . }}" />
+  {{- end -}}
+  {{- if .ReadingTime -}}
+<meta name="twitter:label2" content="Reading time" />
+<meta name="twitter:data2" content="{{ .ReadingTime }} min read" />
+  {{- end -}}
+{{- end -}}
