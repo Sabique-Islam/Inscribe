@@ -4,7 +4,7 @@ description: A personal account of our time at HashCode 13.0
 date: 2025-10-26
 cover: "/images/hashcode-stickers.jpeg"
 tldr: "Our experience at HashCode 13.0, from start to finish."
-draft: true
+draft: false
 tags: ["hackathon"]
 toc: true
 ---
@@ -21,9 +21,9 @@ Must admit — all tracks were quite interesting unlike many hackathons.
 The one I got hooked on was "**More Portability**". It reminded me of an old project I’d built back in my 2nd semester — a **C-based NLP tool** called *[Activity Recommender CLI (ARC)](https://github.com/Sabique-Islam/Activity-Recommender-CLI)*. It used GloVe embeddings to suggest group activities based on user interests.  
 
 The problem was — it only worked on my Mac.  
-The moment I tried running it on Windows, everything broke — well of course — because it included some external C headers.
+When I tried to run it on Windows, many things broke — well of course — because it included some external C headers.
 
-Installing external headers and libraries on Windows is painful — unlike UNIX-based systems, you often have to manually build them from source or rely on tools like MSYS2, set include and linker paths yourself, and hope that it works :)
+Installing external headers and libraries on Windows is painful — unlike UNIX-based systems, you often have to manually build them from source or rely on tools like MSYS2, set include and linker paths yourself :)
 
 
 So I suggested **More Portability** — it felt both personal and practical.  
@@ -51,12 +51,12 @@ Well that was it, "*we were in*" :)
 The day finally came — time to go all *“[elves mode](https://www.goodreads.com/quotes/3202966-and-he-could-sleep-if-sleep-it-could-be-called)”*.
 
 
-All of us are from **PES EC**, but the hackathon was happening at **PES RR** — which meant a little metro adventure.  
+All of us were coming from one campus, while the hackathon was hosted at another campus across the city — which meant a little metro adventure.  
 We hopped on the **Yellow Line**, switched to the **Green Line**, got off at **Banashankari**, and then took a cab to campus.
 
 We ended up reaching almost an hour late (classic us 😭) — although it didn't matter.  
-People were still being checked in at the entrance of MRD, half the teams as clueless as we were.
-Somehow.... that was comforting. 
+People were still being checked in at the venue entrance.
+Somehow.... that was comforting (everyone was late, phew).
 
 ---
 
@@ -64,7 +64,7 @@ Somehow.... that was comforting.
 
 Once we had agreed on the problem, we had to figure out **how** to actually solve it.
 
-In theory, our goal was — building and running C projects portable across Windows, Linux, and macOS.  
+The goal was building and running C projects across Windows, Linux, and macOS.  
 In practice, that meant handling a ton of things like compiler setups, library dependencies, build scripts, paths, and external resources like GloVe embeddings — without making the user go through multiple tabs and installation guides.
 
 After scribbling on my iPad for a fair amount of time and discussing with team members over implementation details.  
@@ -83,7 +83,7 @@ Once the idea was locked, it was time to actually **code**. (ooo... scary)
 
 Catalyst was built as a **CLI framework in Go**. Running `catalyst` would list all the available commands, letting devs choose what to do next. The first command we implemented was `catalyst init`, which **auto-generated a `catalyst.yml`** containing sensible defaults for dependencies, external resources, and build settings.  
 
-We used [Cobra CLI](https://github.com/spf13/cobra) to handle the CLI structure, which made subcommands like `init`, `install`, and `build` clean & intuitive. Each command had proper flags, help text, and argument parsing, making Catalyst usable even for devs unfamiliar with its inner workings.  
+We used [Cobra CLI](https://github.com/spf13/cobra) to handle the CLI structure, to have subcommands like `init`, `install`, and `build`. Each command had proper flags, help text, and argument parsing, making Catalyst usable even for devs unfamiliar with its inner workings.  
 
 One of the key features was **automatic detection of external dependencies**. We wrote a routine that **looped through all `.c` and `.h` files**, and used **regex to extract every `#include` statement**. Catalyst then collected all headers — native, external, or local — and automatically downloaded or linked the required libraries. This eliminated the need for developers to manually figure out missing packages or their installation methods across different OSes.  
 
@@ -92,7 +92,7 @@ Windows was the ultimate testbed:
 - Libraries like `libmicrohttpd` and `cJSON` had to be carefully handled via MSYS2.  
 - Incorrect include paths or linker flags could instantly break builds.  
 
-Linux and macOS were calmer, but still needed to handle different package managers and filesystem paths. Debugging often ended in a mix of facepalms and laughter as we untangled OS-specific quirks.  
+Linux and macOS were easy to work with, but still needed to handle different package managers and filesystem paths. Debugging often ended in laughter as we figured out OS-specific quirks.  
 
 By the end, we had a **working CLI framework** that could:  
 - Show available commands to the user (`catalyst` → list of commands)  
@@ -101,10 +101,11 @@ By the end, we had a **working CLI framework** that could:
 - Fetch external resources automatically  
 - Compile projects with minimal manual intervention (`catalyst build`)  
 
-It wasn’t perfect, edge cases weren't accounted for, some data were hardcoded — but it worked across Mac, Linux, and Windows, achieving the cross-platform portability we aimed for. Maybe not for all repos but most of them.
+Although edge cases weren't accounted for, some data were hardcoded — but it worked across Mac, Linux, and Windows, achieving the cross-platform portability we aimed for. Maybe not for all repos but most of them.
 
 On a side note — our team crossed **100 commits** on github in under 24hrs :)
 (none of the commits involved docs change...trust me 🤫)
+
 ![Commits](../../images/hashcode-commit.png)
 
 ---
@@ -113,9 +114,9 @@ On a side note — our team crossed **100 commits** on github in under 24hrs :)
 
 One of the first lessons came from Go itself. Running `go install github.com/Sabique-Islam/catalyst@latest` didn’t always fetch the newest version because of [Go module caching](https://drewdevault.com/2021/08/06/goproxy-breaks-go.html). At first, I thought it was a proxy delay, but turns out the local cache was serving older builds. Only by using the latest commit hash (`go install github.com/Sabique-Islam/catalyst@<hash>`) did we get the actual latest version (Trial & Error... hehe). Thanks to [Nathan](https://polarhive.net) for correcting me about the underhood logic about this.
 
-Designing the [CLI with Cobra in Go](https://cobra.dev/docs/how-to-guides/shell-completion/) was a lesson in structure. Commands, flags, and help text and how to implement them. Watching someone else run `catalyst init` and immediately understand what to do was a small victory.
+Designing the [CLI with Cobra in Go](https://cobra.dev/docs/how-to-guides/shell-completion/) was a lesson in structure. Commands, flags, and help text and how to implement them.
 
-The reviewers came around to check on progress periodically. We noticed they spent more time with us than with most other teams — of course my idea was goated :) Their questions were sharp, cross-platform handling, and dependency management. They offered crazy tips and suggestions, pointing out ways to make Catalyst better.
+The reviewers came around to check on progress periodically. We noticed they spent more time with us than with most other teams — of course my idea was goated :) They offered crazy tips and suggestions, pointing out ways to make Catalyst better.
 
 ---
 
@@ -137,7 +138,7 @@ For a second, that pang of disappointment hit — but honestly? It didn't sting 
 
 ## End Notes ➤
 
-We built something that genuinely solved a problem we faced ourselves, learned a ton about cross-platform development, Go, CLI frameworks, dependency management, and collaboration within a time limit (nothing was preplanned about our implementation). The reviewers insights, the travel, and the tiny wins along the way — all of it counts :)
+We built something that genuinely solved a problem we faced ourselves, learned a ton about cross-platform development, Go, CLI frameworks, dependency management, and collaboration within a time limit (nothing was preplanned about our implementation). The reviewers insights, the travel, and the food (yeah it was great) — all of it counts :)
 
 Seeing how much I have learned compared to last year is the only thrill needed to keep pushing limits.
 

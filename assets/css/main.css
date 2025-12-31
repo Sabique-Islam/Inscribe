@@ -31,7 +31,7 @@ html {
   font-family: 'Roboto Mono', monospace;
   font-size: 15px;
   line-height: 1.6em;
-  zoom: 1.1;
+  zoom: 1;
   background-color: #e2e2e2; /* Keep base color on HTML */
   transition: var(--theme-transition);
 }
@@ -538,13 +538,12 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 /* Banner inversion for light theme - banner.svg is designed for dark theme */
 .theme-banner {
   filter: invert(1);
-  transition: filter 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Post list item styles */
 .list-item {
-  margin-bottom: 2.5em;
-  padding-bottom: 2em;
+  margin-bottom: 2em;
+  padding-bottom: 0.5em;
 }
 
 .list-item:last-child {
@@ -570,14 +569,14 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 /* Post card with cover image */
 .post-card {
   display: flex;
-  gap: 1.5em;
+  gap: 1em;
   align-items: center;
 }
 
 .post-cover {
   flex-shrink: 0;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -592,7 +591,6 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   object-fit: contain;
   border: none;
   border-radius: 1rem;
-  transition: transform 0.3s ease;
 }
 
 .post-content {
@@ -609,46 +607,15 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 
 .post-content .description {
   margin: 0.5em 0 1em 0;
-  line-height: 1.5;
 }
 
 .post-content .readmore {
   color: var(--maincolor);
   text-decoration: none;
-  font-weight: 500;
-  transition: opacity 0.3s ease;
+  font-weight: 400;
 }
 
 .post-content .readmore:hover {
-  color: #e2e2e2;
-  background: #1e1e1e;
-}
-
-/* Post card without cover image (fallback) */
-.post-card-no-cover {
-  padding: 0;
-}
-
-.post-card-no-cover time {
-  font-size: 0.9em;
-  color: #666;
-  display: block;
-  margin-bottom: 0.5em;
-}
-
-.post-card-no-cover .description {
-  margin: 0.5em 0 1em 0;
-  line-height: 1.5;
-}
-
-.post-card-no-cover .readmore {
-  color: var(--maincolor);
-  text-decoration: none;
-  font-weight: 500;
-  transition: opacity 0.3s ease;
-}
-
-.post-card-no-cover .readmore:hover {
   color: #e2e2e2;
   background: #1e1e1e;
 }
@@ -662,26 +629,8 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   }
   
   .post-cover {
-    width: 100%;
-    height: 200px;
+    width: 70%;
+    height: 100px;
     align-self: center;
   }
-}
-
-/* Comet Background */
-#comet-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0; /* Move to 0, behind content (z-index 1) but in front of html background */
-    pointer-events: none;
-    overflow: hidden;
-}
-
-#comet-container canvas {
-    display: block;
-    width: 100%;
-    height: 100%;
 }
