@@ -15,9 +15,12 @@
     {{- end -}}
   </div>
   <div style="text-align:center; font-size:0.9em; margin-top:1rem; color:#888;">
-    {{ now.Year }} &copy; Sabique Islam
+    <span id="year"></span> &copy; Sabique Islam
   </div>
 </footer>
 
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 <!-- Lenis Scrolling Init -->
 <!-- <script src="{{ absURL "js/lenis-smooth-scroll.js" }}"></script> -->
