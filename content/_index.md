@@ -3,11 +3,11 @@ title = "Sabique Islam"
 subtitle = "Creative Writing | Programming | Technology"
 description = "Creative writer & programmer blending storytelling with tech"
 date = 2025-08-01
-cover = "/images/banner.svg"
+cover = "https://cdn.nopejs.me/inscribe/banner.svg"
 +++
 
 <div class="theme-banners">
-  <img src="/images/banner.svg" alt="Cover Image" class="theme-banner" />
+  <img src="https://cdn.nopejs.me/inscribe/banner.svg" alt="Cover Image" class="theme-banner" />
 </div>
 
 # Hey there!

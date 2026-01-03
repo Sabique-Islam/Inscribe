@@ -1,0 +1,34 @@
+<svg
+  width="512"
+  height="512"
+  viewBox="0 0 512 512"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Terminal window showing 2025.tar.gz"
+>
+  <!-- Window -->
+  <rect x="32" y="32" rx="18" ry="18" width="448" height="448" fill="#000000"/>
+
+  <!-- Title bar -->
+  <rect x="32" y="32" rx="18" ry="18" width="448" height="48" fill="#000000"/>
+
+  <!-- macOS traffic lights -->
+  <circle cx="64" cy="56" r="7" fill="#ff5f56"/>
+  <circle cx="88" cy="56" r="7" fill="#ffbd2e"/>
+  <circle cx="112" cy="56" r="7" fill="#27c93f"/>
+
+  <!-- Centered terminal text + cursor -->
+  <text
+    x="256"
+    y="280"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+    font-size="32"
+    fill="#ffffff"
+  >
+    <tspan fill="#888888">$</tspan>
+    <tspan dx="12">2025.tar.gz</tspan>
+    <tspan id="cursor">▍</tspan>
+  </text>
+</svg>

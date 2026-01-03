@@ -1,25 +1,59 @@
-<svg width="100%" height="100%" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg">
+<svg
+  width="1070"
+  height="320"
+  viewBox="0 0 1070 320"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="INSCRIBE logo"
+>
   <style>
-    .text { font-family: Inter, sans-serif; font-weight: 900; fill: #ffffff; }
-    .bg { fill: #000000; }
-    .stroke { stroke: #ffffff; stroke-width: 18; fill: none; }
+    :root {
+      --fg: #ffffff;
+      --stroke-width: 18;
+    }
+
+    .text {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 900;
+      fill: var(--fg);
+    }
+
+    .stroke {
+      stroke: var(--fg);
+      stroke-width: var(--stroke-width);
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
   </style>
 
-  <!-- Diamond with right side broken -->
-  <g transform="translate(500,160) scale(1.6)">
-    <!-- Top segment -->
+  <!-- Icon -->
+  <g transform="translate(460 160) scale(1.6)">
     <line x1="0" y1="-80" x2="40" y2="-40" class="stroke"/>
-    <!-- Right side bottom segment -->
     <line x1="40" y1="40" x2="0" y2="80" class="stroke"/>
-    <!-- Bottom-left continuous -->
     <line x1="0" y1="80" x2="-80" y2="0" class="stroke"/>
-    <!-- Left side continuous -->
     <line x1="-80" y1="0" x2="0" y2="-80" class="stroke"/>
 
-    <!-- INS text inside (slightly lowered with dy) -->
-    <text text-anchor="middle" alignment-baseline="middle" font-size="50" class="text" dy="3">INS</text>
+    <text
+      x="0"
+      y="4"
+      text-anchor="middle"
+      dominant-baseline="middle"
+      font-size="50"
+      class="text"
+    >
+      INS
+    </text>
   </g>
 
   <!-- CRIBE -->
-  <text x="580" y="187" font-size="80" class="text">CRIBE</text>
+  <text
+    x="540"
+    y="166"
+    dominant-baseline="middle"
+    font-size="80"
+    class="text"
+  >
+    CRIBE
+  </text>
 </svg>
