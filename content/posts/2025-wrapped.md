@@ -92,6 +92,10 @@ Still kept building, but learned where my limits actually are.
 ## December
 **End-sem exams**, (and I have no clue how all the best ideas come during exams itself)
 
+Started documenting my learnings here -> [What I'm Learning](https://gitlab.com/nopejs/what-i-am-learning)
+
+[Notion Journal](https://www.notion.so/2c4c01e7381380379134c5f6b91b1889?v=2c4c01e7381381808c86000ca8a7df33)
+
 - Went on a **project streak**
 - Built a [site](https://sortingscroll.nopejs.me) using **Zola SSG** with a custom theme
 - Open-sourced it under **MIT**
